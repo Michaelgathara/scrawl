@@ -9,5 +9,9 @@ dependencies = [
     "logfire>=2.9.0",
     "openai>=1.58.1",
     "pydantic-ai>=0.0.14",
+    "pytest-asyncio>=0.25.0",
+    "pytest>=8.3.4",
     "python-dotenv>=1.0.1",
 ]
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

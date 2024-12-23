@@ -16,6 +16,8 @@ import logfire
 logfire.instrument_pydantic()
 logfire.configure(send_to_logfire='if-token-present')
 
+from devtools import debug
+
 @dataclass
 class ResearchDeps:
     client: AsyncClient
@@ -38,22 +40,24 @@ research_agent = Agent(
 async def fetch_github_trends(ctx: RunContext[ResearchDeps]) -> List[str]:
     """Fetch trending repositories from GitHub."""
     url = 'https://api.github.com/search/repositories?q=stars:>5000&sort=stars'
-    response = await ctx.deps.client.get(url)
-    response.raise_for_status()
-    data = response.json()
+    with logfire.span('Calling tech news function') as span:
+        response = await ctx.deps.client.get(url)
+        response.raise_for_status()
+        data = response.json()
+        span.set_attribute('tech response', data)
 
-    logfire.info(f"Github fetch data: {data}")
     return [repo['name'] for repo in data['items'][:10]]
 
 @research_agent.tool
 async def fetch_tech_news(ctx: RunContext[ResearchDeps]) -> List[str]:
     """Fetch trending tech news articles."""
     url = 'https://hn.algolia.com/api/v1/search?query=AI&tags=story'
-    response = await ctx.deps.client.get(url)
-    response.raise_for_status()
-    data = response.json()
+    with logfire.span('Calling tech news function') as span:
+        response = await ctx.deps.client.get(url)
+        response.raise_for_status()
+        data = response.json()
+        span.set_attribute('tech response', data)
 
-    logfire.info(f"Tech news data: {data}")
     return [story['title'] for story in data['hits'][:10]]
 
 

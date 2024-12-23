@@ -1,7 +1,7 @@
-# Firecrawl AI Agents
+# Scrawl AI Agent
 
 ## **Overview**
-Firecrawl AI Agents automate the process of researching trending technologies and generating example applications. It showcases the potential of AI-driven workflows for developers.
+Scrawl AI Agents automate the process of researching trending technologies and generating example applications. It showcases the potential of AI-driven workflows for developers.
 
 ### **Key Features**
 - **Research Agent**: Fetches trending technologies and AI models using APIs like GitHub, Dev.to, and Hacker News.

@@ -10,13 +10,11 @@ from database import db
 from agents.research import ResearchDeps, research_agent
 from agents.example_builder import BuilderDeps, example_builder_agent
 
-# Database setup
 db_folder = os.path.join(os.path.dirname(__file__), 'database')
 db_path = os.path.join(db_folder, 'research_data.db')
 
 async def run_agents():
     async with AsyncClient() as client:
-        # Initialize database
         rdb = db.ResearchDatabase(db_path=db_path)
 
         # ------------------ Research Agent ------------------

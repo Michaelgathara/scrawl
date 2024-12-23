@@ -18,9 +18,9 @@ COPY . .
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
 
-# Expose port for API or testing (optional)
+# Expose port for API or testing - will be later 
 EXPOSE 8000
 
 # Default command
-CMD ["uv", "run", "pytest", "-v"]
+CMD ["uv", "run", "python", "main.py"
 

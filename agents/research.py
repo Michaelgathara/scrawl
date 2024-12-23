@@ -44,7 +44,7 @@ async def fetch_github_trends(ctx: RunContext[ResearchDeps]) -> List[str]:
         response = await ctx.deps.client.get(url)
         response.raise_for_status()
         data = response.json()
-        span.set_attribute('tech response', data)
+        span.set_attribute('tech response ', data)
 
     return [repo['name'] for repo in data['items'][:10]]
 
@@ -56,10 +56,21 @@ async def fetch_tech_news(ctx: RunContext[ResearchDeps]) -> List[str]:
         response = await ctx.deps.client.get(url)
         response.raise_for_status()
         data = response.json()
-        span.set_attribute('tech response', data)
+        span.set_attribute('tech response ', data)
 
     return [story['title'] for story in data['hits'][:10]]
 
+@research_agent.tool
+async def fetch_devto_articles(ctx: RunContext[ResearchDeps]) -> List[str]:
+    """Fetch trends from Dev.to."""
+    url = 'https://dev.to/api/articles?per_page=10&top=1'
+    with logfire.span('Calling Dev.to function') as span:
+        response = await ctx.deps.client.get(url)
+        response.raise_for_status()
+        data = response.json()
+        span.set_attribute('dev to reponse ', data)
+    
+    return [article['title'] for article in data[:10]]
 
 async def main():
     async with AsyncClient() as client:

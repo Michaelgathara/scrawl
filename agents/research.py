@@ -1,6 +1,6 @@
 from __future__ import annotations as _annotations
 
-import asyncio
+import asyncio, os
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -17,6 +17,11 @@ logfire.instrument_pydantic()
 logfire.configure(send_to_logfire='if-token-present')
 
 from devtools import debug
+
+# local imports and database
+from database import db
+db_folder = os.path.join(os.path.dirname(__file__), '..', 'database')
+db_path = os.path.join(db_folder, 'research_data.db')
 
 @dataclass
 class ResearchDeps:
@@ -75,8 +80,12 @@ async def fetch_devto_articles(ctx: RunContext[ResearchDeps]) -> List[str]:
 async def main():
     async with AsyncClient() as client:
         deps = ResearchDeps(client=client)
+        rdb = db.ResearchDatabase(db_path=db_path)
         
         result = await research_agent.run('Find trending AI frameworks and tools.', deps=deps)
+
+        rdb.save_results(result.data.topics, result.data.summaries)
+        rdb.close()
         
         print('Trending Topics:', result.data.topics)
         print('Summaries:', result.data.summaries)

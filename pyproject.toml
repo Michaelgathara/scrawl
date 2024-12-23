@@ -3,5 +3,9 @@ name = "scrawl"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = []
+requires-python = ">=3.10"
+dependencies = [
+    "logfire>=2.9.0",
+    "pydantic-ai>=0.0.14",
+    "python-dotenv>=1.0.1",
+]

@@ -7,6 +7,7 @@ load_dotenv()
 
 from dataclasses import dataclass
 from typing import List
+from datetime import datetime
 
 from httpx import AsyncClient
 from pydantic import BaseModel, Field
@@ -84,11 +85,12 @@ async def main():
         
         result = await research_agent.run('Find trending AI frameworks and tools.', deps=deps)
 
-        rdb.save_results(result.data.topics, result.data.summaries)
+        today = datetime.now().strftime("%d-%m-%Y")
+        rdb.save_results(result.data.topics, today, result.data.summaries)
         rdb.close()
         
-        print('Trending Topics:', result.data.topics)
-        print('Summaries:', result.data.summaries)
+        # print('Trending Topics:', result.data.topics)
+        # print('Summaries:', result.data.summaries)
 
 if __name__ == '__main__':
     asyncio.run(main())

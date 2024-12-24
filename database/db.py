@@ -12,6 +12,7 @@ class ResearchDatabase:
                               CREATE TABLE IF NOT EXISTS research(
                                 id INTEGER PRIMARY KEY,
                                 topic TEXT,
+                                date TEXT,
                                 summary TEXT
                                 )
                               ''')

@@ -11,6 +11,7 @@ client = OpenAI()
 
 from dataclasses import dataclass
 from typing import List
+from datetime import datetime
 
 from httpx import AsyncClient
 from pydantic import BaseModel, Field
@@ -73,8 +74,8 @@ async def main():
         deps = BuilderDeps(client=client)
         rdb = db.ResearchDatabase(db_path=db_path)
 
-    
-        results = rdb.conn.execute('SELECT topic FROM research').fetchall()
+        today = datetime.now().strftime("%d-%m-%Y")
+        results = rdb.conn.execute('SELECT topic FROM research WHERE date = ?', (today,)).fetchall()
         topics = [row[0] for row in results]
 
     

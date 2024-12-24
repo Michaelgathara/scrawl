@@ -75,7 +75,7 @@ async def main():
         rdb = db.ResearchDatabase(db_path=db_path)
 
         today = datetime.now().strftime("%d-%m-%Y")
-        results = rdb.conn.execute('SELECT topic FROM research WHERE date = ?', (today,)).fetchall()
+        results = rdb.conn1.execute('SELECT topic FROM research WHERE date = ?', (today,)).fetchall()
         topics = [row[0] for row in results]
 
     

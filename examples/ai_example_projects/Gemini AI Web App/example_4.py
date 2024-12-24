@@ -1,1 +1,0 @@
-First, let's create a simple Flask application:

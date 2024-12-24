@@ -1,1 +1,0 @@
-2. **Connect the Webhook**: In Dialogflow Console, navigate to Fulfillment, enable it, and provide the URL of your deployed Flask app as the webhook.

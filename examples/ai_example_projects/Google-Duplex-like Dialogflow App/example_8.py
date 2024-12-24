@@ -1,1 +1,0 @@
-2. **Define Intents**: In Dialogflow, define intents that capture the user's requests. For example, create intents for booking a table, changing a reservation, or asking for working hours.

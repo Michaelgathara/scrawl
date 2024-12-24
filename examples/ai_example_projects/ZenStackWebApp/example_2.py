@@ -1,1 +1,0 @@
-ZenStack combines modern development practices by integrating with some of the hottest technologies. This example demonstrates building a simple web application using ZenStack with Next.js, Prisma for database management, and TypeScript.

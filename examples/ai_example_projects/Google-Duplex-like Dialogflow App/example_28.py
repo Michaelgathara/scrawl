@@ -1,1 +1,0 @@
-This example app demonstrates a simple setup to mimic some conversational aspects of Google Duplex using Google Dialogflow and Python Flask. You can expand it by adding more intent actions and connecting to databases or external APIs to fulfill complex user requests.

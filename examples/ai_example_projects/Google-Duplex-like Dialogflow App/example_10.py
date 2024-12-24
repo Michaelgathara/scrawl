@@ -1,1 +1,0 @@
-3. **Entity Definition**: Use entities to handle variable parts of the phrases (e.g., date, time, number of people, etc.).

@@ -1,1 +1,0 @@
-Run the Flask app by executing the following command in your terminal:

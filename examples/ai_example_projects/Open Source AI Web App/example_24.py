@@ -1,1 +1,0 @@
-### Example 2: Image Recognition with OpenCV

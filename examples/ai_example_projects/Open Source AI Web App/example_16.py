@@ -1,3 +1,0 @@
-```bash
-python app.py
-```

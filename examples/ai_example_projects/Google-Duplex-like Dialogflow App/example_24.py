@@ -1,1 +1,0 @@
-1. **Deploy the Flask Application**: Use a cloud service like Google Cloud Run or AWS to deploy your Flask service, which allows Dialogflow to access the webhook endpoint.

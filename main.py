@@ -12,6 +12,18 @@ from agents.example_builder import BuilderDeps, example_builder_agent
 
 db_folder = os.path.join(os.path.dirname(__file__), 'database')
 db_path = os.path.join(db_folder, 'research_data.db')
+examples_folder = os.path.join(os.path.dirname(__file__), 'examples', 'ai_example_projects')
+os.makedirs(examples_folder, exist_ok = True)
+
+async def save_example(project_name: str, snippets: list[str]):
+    project_path = os.path.join(examples_folder, project_name)
+    os.makedirs(project_path, exist_ok = True)
+    
+    for i, snippet in enumerate(snippets):
+        # TODO: could be cool to name the file actually something useful here
+        file_path = os.path.join(project_path, f'example_{i + i}.py') 
+        with open(file_path, 'w', encoding = "utf-8") as file:
+            file.write(snippet)
 
 async def run_agents():
     async with AsyncClient() as client:
@@ -35,9 +47,7 @@ async def run_agents():
         builder_deps = BuilderDeps(client=client)
         for topic in topics:
             builder_result = await example_builder_agent.run(f'Generate example app for {topic}', deps=builder_deps)
-            print(f'Example Project: {builder_result.data.project_name}')
-            for snippet in builder_result.data.code_snippets:
-                print(snippet)
+            await save_example(builder_result.data.project_name, builder_result.data.code_snippets)
 
         print("Example Builder Agent Completed.")
         rdb.close()

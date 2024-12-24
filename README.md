@@ -15,7 +15,7 @@ Scrawl AI Agents automate the process of researching trending technologies and g
 - [ ] Enhance the research agent to acquire more data
 - [ ] Example builder should output files
    - [ ] Example builder should automatically push examples to Github
-- [ ] Testing - see [**Testing Framework**](#testing-framework)
+- [ ] Testing - see [**Testing Framework**](#testing)
 
 
 

@@ -27,7 +27,7 @@ Scrawl AI Agents automate the process of researching trending technologies and g
 │   ├── research.py              # Research agent
 │   └── __init__.py              # Package initialization
 │
-├── database
+|── database
 │   ├── db.py                    # SQLite database management
 │   ├── research_data.db         # SQLite database file
 │   └── __init__.py              # Package initialization
@@ -144,3 +144,4 @@ Contributions are welcome! Please submit issues and pull requests on GitHub.
 ---
 
 ## **License**
+This project is licensed under the AGPL 3.0 License. See the [GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.html) for more details.

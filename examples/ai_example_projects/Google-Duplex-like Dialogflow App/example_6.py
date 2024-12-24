@@ -1,0 +1,1 @@
+1. **Create a Dialogflow Agent**: Go to the [Dialogflow Console](https://dialogflow.cloud.google.com/) and create a new agent. You can customize it to understand and handle phrases related to making reservations or other interactive tasks.

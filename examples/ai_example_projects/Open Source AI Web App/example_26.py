@@ -1,0 +1,1 @@
+In this example, we'll create a simple Flask endpoint using OpenCV to capture and recognize faces from an uploaded image.

@@ -1,0 +1,1 @@
+This Flask app runs a server that accepts JSON data via a POST request at the `/predict` endpoint and returns a dummy prediction. You can replace the `dummy_predict` function with your machine learning model logic.

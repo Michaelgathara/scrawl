@@ -11,6 +11,14 @@ Scrawl AI Agents automate the process of researching trending technologies and g
 
 ---
 
+### TODO:
+- [ ] Enhance the research agent to acquire more data
+- [ ] Example builder should output files
+   - [ ] Example builder should automatically push examples to Github
+- [ ] Testing - see [**Testing Framework**](#testing-framework)
+
+
+
 ## **Folder Structure**
 ```
 .
@@ -33,7 +41,7 @@ Scrawl AI Agents automate the process of researching trending technologies and g
 │   ├── test_research.py         # Tests for research agent
 │   └── __init__.py              # Package initialization
 │
-├── .env                         # Environment variables
+├── .env                         # Environment variables (you create this)
 ├── .env.example                 # Example .env file
 ├── .gitignore                   # Git ignore rules
 ├── pyproject.toml               # Project configuration
@@ -97,7 +105,9 @@ Generate example code snippets for the stored technologies.
 ## **Testing**
 > [!IMPORTANT]
 > Testing does not quite work here
-
+- [ ] Implement unit tests for the Research Agent
+- [ ] Implement unit tests for the Example Builder Agent
+- [ ] Integrate testing with CI/CD pipeline
 
 ### **Run Tests**
 ```bash

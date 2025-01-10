@@ -1,9 +1,9 @@
 [project]
 name = "scrawl"
 version = "0.1.0"
-description = "Add your description here"
+description = "Find current trends and create example code for it"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
     "devtools>=0.12.2",
     "logfire>=2.9.0",
@@ -12,6 +12,7 @@ dependencies = [
     "pytest-asyncio>=0.25.0",
     "pytest>=8.3.4",
     "python-dotenv>=1.0.1",
+    "browser-use>=0.1.18",
 ]
 [tool.pytest.ini_options]
 asyncio_mode = "auto"

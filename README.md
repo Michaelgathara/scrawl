@@ -76,7 +76,7 @@ Scrawl AI Agents automate the process of researching trending technologies and g
 
 3. **Install Dependencies**
    ```bash
-   uv pip install -r requirements.txt
+   uv sync
    ```
 
 4. **Configure Environment Variables**
